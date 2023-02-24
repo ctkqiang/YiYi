@@ -11,7 +11,7 @@ import SwiftUI
 
 struct ActionCustomView {
     public static func backButton(presentationMode: Binding<PresentationMode>) throws -> some View {
-        Button {
+       try! Button {
             presentationMode.wrappedValue.dismiss()
         } label: {
             HStack {
@@ -23,6 +23,8 @@ struct ActionCustomView {
                 )
                 .foregroundColor(.blue)
             }
+        }.onBackSwipe {
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }

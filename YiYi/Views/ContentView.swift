@@ -20,42 +20,44 @@ struct ContentView: View {
     
     public var body: some View {
         NavigationView {
-            Grid {
-                VStack{
-                    ForEach(MenuList.mainMenu, id: \.id) { button in
-                        NavigationLink {
-                            // @TODO add logic
-                            
-                            switch button.id {
-                            case 0:
-                                NFCView()
-                            case 1:
-                                BluetoothView()
-                            case 2:
-                                WirelessView()
-                            case 3:
-                                ShellView()
-                            default: self
-                            }
-                            
-                        } label: {
-                            
-                            VStack {
-                                Image(button.image)
-                                    .resizable()
-                                    .frame(width: 50, height: 50)
-                                    .padding(5)
-                                Text(button.name).font(
-                                    Font.custom("tianzhen", size: 15)
-                                )
-                            }
-                            .padding()
-                            .background(Color(UIColor.systemGroupedBackground))
-                            .cornerRadius(10)
+            
+            VStack{
+                ForEach(MenuList.mainMenu, id: \.id) { button in
+                    NavigationLink {
+                        // @TODO add logic
+                        
+                        switch button.id {
+                        case 0:
+                            NFCView()
+                        case 1:
+                            BluetoothView()
+                        case 2:
+                            WirelessView()
+                        case 3:
+                            ShellView()
+                        default: self
                         }
+                        
+                    } label: {
+                        
+                        VStack {
+                            Image(button.image)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .padding(5)
+                            Text(button.name).font(
+                                Font.custom("tianzhen", size: 15)
+                            )
+                        }
+                        .padding()
+                        .background(
+                            self.colorScheme == .dark ? .gray : Color(UIColor.systemGroupedBackground)
+                        )
+                        .cornerRadius(10)
                     }
-                    .padding()
                 }
+                .padding()
+                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

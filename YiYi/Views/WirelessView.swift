@@ -5,7 +5,11 @@
 //  Created by John Melody Me on 24/02/2023.
 //
 
+
+#if canImport(SwiftUI)
 import SwiftUI
+#endif
+
 
 struct WirelessView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>

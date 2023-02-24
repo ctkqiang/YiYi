@@ -20,6 +20,9 @@
 		1A0CB26429A8A97200FB34A7 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CB26329A8A97200FB34A7 /* SplashView.swift */; };
 		1A0CB26929A8AF7300FB34A7 /* tianzhen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A0CB26829A8AF7300FB34A7 /* tianzhen.ttf */; };
 		1AA0464F29A910310032C91E /* ShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA0464E29A910310032C91E /* ShellView.swift */; };
+		1AB3A94829A91B970005C6B6 /* Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3A94729A91B970005C6B6 /* Gestures.swift */; };
+		1AB3A94B29A91E0B0005C6B6 /* BluetoothServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3A94A29A91E0B0005C6B6 /* BluetoothServices.swift */; };
+		1AB3A95029A929750005C6B6 /* Bluejay in Frameworks */ = {isa = PBXBuildFile; productRef = 1AB3A94F29A929750005C6B6 /* Bluejay */; };
 		1AB83EFA29A8B476009C941C /* ActionCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB83EF929A8B476009C941C /* ActionCustomView.swift */; };
 		1AB83EFC29A8B7BA009C941C /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB83EFB29A8B7BA009C941C /* BluetoothView.swift */; };
 		1AB83EFE29A8B7CC009C941C /* WirelessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB83EFD29A8B7CC009C941C /* WirelessView.swift */; };
@@ -61,6 +64,8 @@
 		1A0CB26329A8A97200FB34A7 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		1A0CB26829A8AF7300FB34A7 /* tianzhen.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tianzhen.ttf; sourceTree = "<group>"; };
 		1AA0464E29A910310032C91E /* ShellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellView.swift; sourceTree = "<group>"; };
+		1AB3A94729A91B970005C6B6 /* Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gestures.swift; sourceTree = "<group>"; };
+		1AB3A94A29A91E0B0005C6B6 /* BluetoothServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothServices.swift; sourceTree = "<group>"; };
 		1AB83EF929A8B476009C941C /* ActionCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCustomView.swift; sourceTree = "<group>"; };
 		1AB83EFB29A8B7BA009C941C /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
 		1AB83EFD29A8B7CC009C941C /* WirelessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WirelessView.swift; sourceTree = "<group>"; };
@@ -72,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AB3A95029A929750005C6B6 /* Bluejay in Frameworks */,
 				1AB83F0429A8FDF2009C941C /* SwiftNFC in Frameworks */,
 				1AB83F0129A8BBAB009C941C /* AlertToast in Frameworks */,
 			);
@@ -118,6 +124,8 @@
 		1A0CB22D29A8931A00FB34A7 /* YiYi */ = {
 			isa = PBXGroup;
 			children = (
+				1AB3A94929A91DF80005C6B6 /* Controllers */,
+				1AB3A94629A91B810005C6B6 /* Extensions */,
 				1AE6584B29A909070059F725 /* Info.plist */,
 				1A0CB26A29A8B36D00FB34A7 /* Utilties */,
 				1A0CB25C29A8972C00FB34A7 /* Constants */,
@@ -200,6 +208,22 @@
 			path = Utilties;
 			sourceTree = "<group>";
 		};
+		1AB3A94629A91B810005C6B6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1AB3A94729A91B970005C6B6 /* Gestures.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1AB3A94929A91DF80005C6B6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1AB3A94A29A91E0B0005C6B6 /* BluetoothServices.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,6 +243,7 @@
 			packageProductDependencies = (
 				1AB83F0029A8BBAB009C941C /* AlertToast */,
 				1AB83F0329A8FDF2009C941C /* SwiftNFC */,
+				1AB3A94F29A929750005C6B6 /* Bluejay */,
 			);
 			productName = YiYi;
 			productReference = 1A0CB22B29A8931A00FB34A7 /* YiYi.app */;
@@ -296,6 +321,7 @@
 			packageReferences = (
 				1AB83EFF29A8BBAB009C941C /* XCRemoteSwiftPackageReference "AlertToast" */,
 				1AB83F0229A8FDF2009C941C /* XCRemoteSwiftPackageReference "SwiftNFC" */,
+				1AB3A94E29A929750005C6B6 /* XCRemoteSwiftPackageReference "bluejay" */,
 			);
 			productRefGroup = 1A0CB22C29A8931A00FB34A7 /* Products */;
 			projectDirPath = "";
@@ -344,9 +370,11 @@
 				1AB83EFE29A8B7CC009C941C /* WirelessView.swift in Sources */,
 				1A0CB23129A8931A00FB34A7 /* ContentView.swift in Sources */,
 				1AB83EFA29A8B476009C941C /* ActionCustomView.swift in Sources */,
+				1AB3A94B29A91E0B0005C6B6 /* BluetoothServices.swift in Sources */,
 				1A0CB25E29A8978000FB34A7 /* MenuList.swift in Sources */,
 				1A0CB26229A8A26C00FB34A7 /* NFCView.swift in Sources */,
 				1A0CB22F29A8931A00FB34A7 /* YiYiApp.swift in Sources */,
+				1AB3A94829A91B970005C6B6 /* Gestures.swift in Sources */,
 				1AA0464F29A910310032C91E /* ShellView.swift in Sources */,
 				1A0CB26429A8A97200FB34A7 /* SplashView.swift in Sources */,
 				1AB83EFC29A8B7BA009C941C /* BluetoothView.swift in Sources */,
@@ -516,6 +544,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "佚佚";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "启用此功能以使用NFC实用程序";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "允许我使用蓝牙来使用蓝牙实用程序";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "允许我使用蓝牙来使用蓝牙实用程序";
 				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "启用此功能以使用NFC实用程序";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -554,6 +584,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "佚佚";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "启用此功能以使用NFC实用程序";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "允许我使用蓝牙来使用蓝牙实用程序";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "允许我使用蓝牙来使用蓝牙实用程序";
 				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "启用此功能以使用NFC实用程序";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -694,6 +726,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1AB3A94E29A929750005C6B6 /* XCRemoteSwiftPackageReference "bluejay" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnmelodyme/bluejay.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		1AB83EFF29A8BBAB009C941C /* XCRemoteSwiftPackageReference "AlertToast" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/johnmelodyme/AlertToast.git";
@@ -713,6 +753,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1AB3A94F29A929750005C6B6 /* Bluejay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AB3A94E29A929750005C6B6 /* XCRemoteSwiftPackageReference "bluejay" */;
+			productName = Bluejay;
+		};
 		1AB83F0029A8BBAB009C941C /* AlertToast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1AB83EFF29A8BBAB009C941C /* XCRemoteSwiftPackageReference "AlertToast" */;

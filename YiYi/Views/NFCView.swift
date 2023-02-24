@@ -14,7 +14,8 @@ import SwiftNFC
 #endif
 
 struct NFCView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    @Environment(\.colorScheme) private var colorScheme
     
     @ObservedObject private var NFCR = NFCReader()
     @ObservedObject private var NFCW = NFCWriter()
@@ -41,7 +42,9 @@ struct NFCView: View {
                                     Font.custom("tianzhen", size: 15)
                                 )
                                 .padding()
-                                .background(Color(UIColor.systemGroupedBackground))
+                                .background(
+                                    self.colorScheme == .dark ? .gray : Color(UIColor.systemGroupedBackground)
+                                )
                                 .cornerRadius(10)
                                 .foregroundColor(.green)
                         }
@@ -54,7 +57,9 @@ struct NFCView: View {
                                     Font.custom("tianzhen", size: 15)
                                 )
                                 .padding()
-                                .background(Color(UIColor.systemGroupedBackground))
+                                .background(
+                                    self.colorScheme == .dark ? .gray : Color(UIColor.systemGroupedBackground)
+                                )
                                 .cornerRadius(10)
                                 .foregroundColor(.red)
                         }
