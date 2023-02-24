@@ -18,6 +18,10 @@
 		1A0CB25E29A8978000FB34A7 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CB25D29A8978000FB34A7 /* MenuList.swift */; };
 		1A0CB26229A8A26C00FB34A7 /* NFCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CB26129A8A26C00FB34A7 /* NFCView.swift */; };
 		1A0CB26429A8A97200FB34A7 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CB26329A8A97200FB34A7 /* SplashView.swift */; };
+		1A0CB26929A8AF7300FB34A7 /* tianzhen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A0CB26829A8AF7300FB34A7 /* tianzhen.ttf */; };
+		1AB83EFA29A8B476009C941C /* ActionCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB83EF929A8B476009C941C /* ActionCustomView.swift */; };
+		1AB83EFC29A8B7BA009C941C /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB83EFB29A8B7BA009C941C /* BluetoothView.swift */; };
+		1AB83EFE29A8B7CC009C941C /* WirelessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB83EFD29A8B7CC009C941C /* WirelessView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,10 @@
 		1A0CB25D29A8978000FB34A7 /* MenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
 		1A0CB26129A8A26C00FB34A7 /* NFCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCView.swift; sourceTree = "<group>"; };
 		1A0CB26329A8A97200FB34A7 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		1A0CB26829A8AF7300FB34A7 /* tianzhen.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tianzhen.ttf; sourceTree = "<group>"; };
+		1AB83EF929A8B476009C941C /* ActionCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCustomView.swift; sourceTree = "<group>"; };
+		1AB83EFB29A8B7BA009C941C /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
+		1AB83EFD29A8B7CC009C941C /* WirelessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WirelessView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,7 @@
 		1A0CB22229A8931A00FB34A7 = {
 			isa = PBXGroup;
 			children = (
+				1A0CB26729A8AF6100FB34A7 /* fonts */,
 				1A0CB22D29A8931A00FB34A7 /* YiYi */,
 				1A0CB23E29A8931C00FB34A7 /* YiYiTests */,
 				1A0CB24829A8931C00FB34A7 /* YiYiUITests */,
@@ -102,6 +111,7 @@
 		1A0CB22D29A8931A00FB34A7 /* YiYi */ = {
 			isa = PBXGroup;
 			children = (
+				1A0CB26A29A8B36D00FB34A7 /* Utilties */,
 				1A0CB25C29A8972C00FB34A7 /* Constants */,
 				1A0CB25929A896C500FB34A7 /* Models */,
 				1A0CB25829A894F000FB34A7 /* Views */,
@@ -143,6 +153,8 @@
 				1A0CB23029A8931A00FB34A7 /* ContentView.swift */,
 				1A0CB26129A8A26C00FB34A7 /* NFCView.swift */,
 				1A0CB26329A8A97200FB34A7 /* SplashView.swift */,
+				1AB83EFB29A8B7BA009C941C /* BluetoothView.swift */,
+				1AB83EFD29A8B7CC009C941C /* WirelessView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +173,22 @@
 				1A0CB25D29A8978000FB34A7 /* MenuList.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		1A0CB26729A8AF6100FB34A7 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1A0CB26829A8AF7300FB34A7 /* tianzhen.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		1A0CB26A29A8B36D00FB34A7 /* Utilties */ = {
+			isa = PBXGroup;
+			children = (
+				1AB83EF929A8B476009C941C /* ActionCustomView.swift */,
+			);
+			path = Utilties;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +276,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 				Base,
 			);
 			mainGroup = 1A0CB22229A8931A00FB34A7;
@@ -269,6 +298,7 @@
 			files = (
 				1A0CB23629A8931C00FB34A7 /* Preview Assets.xcassets in Resources */,
 				1A0CB23329A8931C00FB34A7 /* Assets.xcassets in Resources */,
+				1A0CB26929A8AF7300FB34A7 /* tianzhen.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,11 +324,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A0CB25B29A896D500FB34A7 /* Menu.swift in Sources */,
+				1AB83EFE29A8B7CC009C941C /* WirelessView.swift in Sources */,
 				1A0CB23129A8931A00FB34A7 /* ContentView.swift in Sources */,
+				1AB83EFA29A8B476009C941C /* ActionCustomView.swift in Sources */,
 				1A0CB25E29A8978000FB34A7 /* MenuList.swift in Sources */,
 				1A0CB26229A8A26C00FB34A7 /* NFCView.swift in Sources */,
 				1A0CB22F29A8931A00FB34A7 /* YiYiApp.swift in Sources */,
 				1A0CB26429A8A97200FB34A7 /* SplashView.swift in Sources */,
+				1AB83EFC29A8B7BA009C941C /* BluetoothView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,9 +507,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = johnmelodyme.pentestertool.YiYi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -505,9 +541,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = johnmelodyme.pentestertool.YiYi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

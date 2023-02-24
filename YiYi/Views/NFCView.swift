@@ -11,18 +11,19 @@ import SwiftUI
 
 
 struct NFCView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     public var body: some View {
         NavigationView {
             VStack {
                 
             }
-            .navigationTitle(MenuList.mainMenu[0].name)
+            .navigationTitle(MenuList.mainMenu[0].name).font(Font.custom("tianzhen", size: 20))
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .navigationBarLeading) {
-                
-            }
-        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(
+            leading: try! ActionCustomView.backButton(presentationMode: self.presentationMode)
+        )
     }
 }
 
