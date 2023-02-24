@@ -19,9 +19,12 @@
 		1A0CB26229A8A26C00FB34A7 /* NFCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CB26129A8A26C00FB34A7 /* NFCView.swift */; };
 		1A0CB26429A8A97200FB34A7 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0CB26329A8A97200FB34A7 /* SplashView.swift */; };
 		1A0CB26929A8AF7300FB34A7 /* tianzhen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A0CB26829A8AF7300FB34A7 /* tianzhen.ttf */; };
+		1AA0464F29A910310032C91E /* ShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA0464E29A910310032C91E /* ShellView.swift */; };
 		1AB83EFA29A8B476009C941C /* ActionCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB83EF929A8B476009C941C /* ActionCustomView.swift */; };
 		1AB83EFC29A8B7BA009C941C /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB83EFB29A8B7BA009C941C /* BluetoothView.swift */; };
 		1AB83EFE29A8B7CC009C941C /* WirelessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB83EFD29A8B7CC009C941C /* WirelessView.swift */; };
+		1AB83F0129A8BBAB009C941C /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 1AB83F0029A8BBAB009C941C /* AlertToast */; };
+		1AB83F0429A8FDF2009C941C /* SwiftNFC in Frameworks */ = {isa = PBXBuildFile; productRef = 1AB83F0329A8FDF2009C941C /* SwiftNFC */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,9 +60,11 @@
 		1A0CB26129A8A26C00FB34A7 /* NFCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCView.swift; sourceTree = "<group>"; };
 		1A0CB26329A8A97200FB34A7 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		1A0CB26829A8AF7300FB34A7 /* tianzhen.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tianzhen.ttf; sourceTree = "<group>"; };
+		1AA0464E29A910310032C91E /* ShellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellView.swift; sourceTree = "<group>"; };
 		1AB83EF929A8B476009C941C /* ActionCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCustomView.swift; sourceTree = "<group>"; };
 		1AB83EFB29A8B7BA009C941C /* BluetoothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothView.swift; sourceTree = "<group>"; };
 		1AB83EFD29A8B7CC009C941C /* WirelessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WirelessView.swift; sourceTree = "<group>"; };
+		1AE6584B29A909070059F725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AB83F0429A8FDF2009C941C /* SwiftNFC in Frameworks */,
+				1AB83F0129A8BBAB009C941C /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +118,7 @@
 		1A0CB22D29A8931A00FB34A7 /* YiYi */ = {
 			isa = PBXGroup;
 			children = (
+				1AE6584B29A909070059F725 /* Info.plist */,
 				1A0CB26A29A8B36D00FB34A7 /* Utilties */,
 				1A0CB25C29A8972C00FB34A7 /* Constants */,
 				1A0CB25929A896C500FB34A7 /* Models */,
@@ -155,6 +163,7 @@
 				1A0CB26329A8A97200FB34A7 /* SplashView.swift */,
 				1AB83EFB29A8B7BA009C941C /* BluetoothView.swift */,
 				1AB83EFD29A8B7CC009C941C /* WirelessView.swift */,
+				1AA0464E29A910310032C91E /* ShellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +216,10 @@
 			dependencies = (
 			);
 			name = YiYi;
+			packageProductDependencies = (
+				1AB83F0029A8BBAB009C941C /* AlertToast */,
+				1AB83F0329A8FDF2009C941C /* SwiftNFC */,
+			);
 			productName = YiYi;
 			productReference = 1A0CB22B29A8931A00FB34A7 /* YiYi.app */;
 			productType = "com.apple.product-type.application";
@@ -280,6 +293,10 @@
 				Base,
 			);
 			mainGroup = 1A0CB22229A8931A00FB34A7;
+			packageReferences = (
+				1AB83EFF29A8BBAB009C941C /* XCRemoteSwiftPackageReference "AlertToast" */,
+				1AB83F0229A8FDF2009C941C /* XCRemoteSwiftPackageReference "SwiftNFC" */,
+			);
 			productRefGroup = 1A0CB22C29A8931A00FB34A7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -330,6 +347,7 @@
 				1A0CB25E29A8978000FB34A7 /* MenuList.swift in Sources */,
 				1A0CB26229A8A26C00FB34A7 /* NFCView.swift in Sources */,
 				1A0CB22F29A8931A00FB34A7 /* YiYiApp.swift in Sources */,
+				1AA0464F29A910310032C91E /* ShellView.swift in Sources */,
 				1A0CB26429A8A97200FB34A7 /* SplashView.swift in Sources */,
 				1AB83EFC29A8B7BA009C941C /* BluetoothView.swift in Sources */,
 			);
@@ -418,7 +436,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -472,7 +490,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -487,14 +505,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = YiYi/YiYi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"YiYi/Preview Content\"";
 				DEVELOPMENT_TEAM = 9W5GY4L6GJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YiYi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "佚佚";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "启用此功能以使用NFC实用程序";
+				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "启用此功能以使用NFC实用程序";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -521,14 +543,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = YiYi/YiYi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"YiYi/Preview Content\"";
 				DEVELOPMENT_TEAM = 9W5GY4L6GJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YiYi/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "佚佚";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "启用此功能以使用NFC实用程序";
+				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "启用此功能以使用NFC实用程序";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -666,6 +692,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1AB83EFF29A8BBAB009C941C /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnmelodyme/AlertToast.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		1AB83F0229A8FDF2009C941C /* XCRemoteSwiftPackageReference "SwiftNFC" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnmelodyme/SwiftNFC.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1AB83F0029A8BBAB009C941C /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AB83EFF29A8BBAB009C941C /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+		1AB83F0329A8FDF2009C941C /* SwiftNFC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AB83F0229A8FDF2009C941C /* XCRemoteSwiftPackageReference "SwiftNFC" */;
+			productName = SwiftNFC;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1A0CB22329A8931A00FB34A7 /* Project object */;
 }

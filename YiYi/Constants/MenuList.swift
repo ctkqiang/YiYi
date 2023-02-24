@@ -11,6 +11,7 @@ struct MenuList {
     public static var mainMenu :[Menu] = [
         Menu(id: 0, name: "NFC读写器", image: "nfc"),
         Menu(id: 1, name: "蓝牙实用程序", image: "bluetooth"),
-        Menu(id: 2, name: "网络实用程序", image: "wifi")
+        Menu(id: 2, name: "网络实用程序", image: "wifi"),
+        Menu(id: 3, name: "Shell    ", image: "shell")
     ]
 }
