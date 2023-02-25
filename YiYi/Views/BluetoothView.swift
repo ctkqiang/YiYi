@@ -18,25 +18,57 @@ struct BluetoothView: View {
     
     @State private var isPresent: Bool = false
     
-    var body: some View {
+    public var body: some View {
         NavigationView {
             VStack {
                 List(self.bluetoothService.peripheralNames, id:\.self) { peripheral in
                     Button {
-                        NSLog(peripheral[0])
+                        
+                        // Copy to clipboard
+                        try! Utilities.copyToClipboard(data: "\(peripheral)") { data in
+                            if !data { return }
+                            
+                            NSLog("\(peripheral)")
+                        }
+                        
                     } label: {
                         VStack(alignment: .leading) {
                             Text("命名: \(peripheral[0])").font(
                                 Font.custom("tianzhen", size: 20)
                             )
+                            
                             Text("调试资讯: \(peripheral[1])").font(
-                                Font.custom("tianzhen", size: 10)
+                                Font.custom("tianzhen", size: 12)
                             )
+                            
                             Text("ANCS验证: \(peripheral[2])").font(
-                                Font.custom("tianzhen", size: 10)
+                                Font.custom("tianzhen", size: 12)
                             )
+                            
                             Text("服务: \(peripheral[3] == "nil" ? "《没有任何服务》" : peripheral[3])").font(
-                                Font.custom("tianzhen", size: 10)
+                                Font.custom("tianzhen", size: 12)
+                            )
+                            
+                            Text("情况: \(peripheral[4])").font(
+                                Font.custom("tianzhen", size: 12)
+                            )
+                            
+                            Text("UUID: 《\(peripheral[5])》").font(
+                                Font.custom("tianzhen", size: 12)
+                            )
+                            
+                            Text("正在扫描: 《\(peripheral[6])》").font(
+                                Font.custom("tianzhen", size: 12)
+                            )
+                            
+                            Text("数据: 《\(peripheral[7])》").font(
+                                Font.custom("tianzhen", size: 9)
+                            )
+                            
+                            Text(
+                                "RSSI: 《 \(peripheral[8]) 》"
+                            ).font(
+                                Font.custom("tianzhen", size: 12)
                             )
                         }
                     }

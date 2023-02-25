@@ -10,6 +10,9 @@
 import SwiftUI
 #endif
 
+#if canImport(SwiftTerm)
+import SwiftTerm
+#endif
 
 struct ShellView: View {
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
@@ -22,15 +25,17 @@ struct ShellView: View {
         NavigationView {
             VStack {
                 //@TODO Adjust
-                ZStack {
-                    Text(" machine-one:$ ")
-                        .foregroundColor(self.colorScheme == .dark ? .white : .black)
-                        .frame(
-                            maxWidth: .infinity,
-                            maxHeight: .infinity,
-                            alignment: .topLeading
-                        )
-                }
+//                ZStack {
+//                    Text(" machine-one:$ ")
+//                        .foregroundColor(self.colorScheme == .dark ? .white : .black)
+//                        .frame(
+//                            maxWidth: .infinity,
+//                            maxHeight: .infinity,
+//                            alignment: .topLeading
+//                        )
+//                }
+                
+                
                 
             }
         }

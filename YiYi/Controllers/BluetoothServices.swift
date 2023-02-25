@@ -29,7 +29,7 @@ public class BluetoothService: NSObject, ObservableObject, CBPeripheralDelegate 
         super.init()
         self.centralManager = CBCentralManager(delegate: self, queue: self.btQueue, options: nil)
     }
-   
+    
     public func start() throws -> Void {
         self.centralManager?.scanForPeripherals(withServices: nil)
     }
@@ -42,6 +42,32 @@ public class BluetoothService: NSObject, ObservableObject, CBPeripheralDelegate 
         self.centralManager!.stopScan()
     }
     
+    public static func signalStrength(rssi: String) throws -> String {
+        var value: Int = Int(rssi)!
+        
+        if value < -55 {
+            return "非常强"
+        }
+        
+        else if value < -67 && value > -55 {
+            return "蛮强"
+        }
+        
+        else if value < -80 && value > -67 {
+            return "正常"
+        }
+        
+        else if value < -90 && value > -80 {
+            return "差"
+        }
+        
+        else if value > -90 {
+            return "非常差"
+        }
+        
+        return "未知"
+    }
+    
 }
 
 extension BluetoothService: CBCentralManagerDelegate {
@@ -50,7 +76,7 @@ extension BluetoothService: CBCentralManagerDelegate {
         case .poweredOff:
             NSLog("《蓝牙电源关闭》")
         case .poweredOn:
-            NSLog("Powered On.")
+            NSLog("《蓝牙电源已开启》")
             self.centralManager?.scanForPeripherals(withServices: nil)
         case .unsupported:
             NSLog("Unsupported.")
@@ -73,11 +99,17 @@ extension BluetoothService: CBCentralManagerDelegate {
     ) {
         if !self.peripherals.contains(peripheral) {
             self.peripherals.append(peripheral)
+            print("\(advertisementData.keys)\(advertisementData.values)")
             self.peripheralNames.append([
-                peripheral.name ?? "《未命名的设备》",
-                peripheral.debugDescription,
-                String(describing: peripheral.ancsAuthorized),
-                String(describing: peripheral.services)
+                "《\(peripheral.name ?? "未命名的设备")》" ,
+                String(describing: peripheral.debugDescription.decomposedStringWithCanonicalMapping),
+                String(describing: peripheral.ancsAuthorized ? "《是》" : "《否》" ),
+                String(describing: peripheral.services),
+                String(describing: peripheral.state.rawValue == 0 ? "《断开连接》" : "《连接》"),
+                peripheral.identifier.uuidString,
+                "\(central.isScanning ? "是" : "否")",
+                "\(advertisementData.debugDescription.decomposedStringWithCanonicalMapping)",
+                RSSI.stringValue
             ])
         }
     }
