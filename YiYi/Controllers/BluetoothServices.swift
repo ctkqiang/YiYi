@@ -18,56 +18,40 @@ import Combine
 import CoreBluetooth
 #endif
 
-
-
-final public class BluetoothService: NSObject, CBPeripheralDelegate, CBCentralManagerDelegate {
-    private var centralManager: CBCentralManager! = nil
+public class BluetoothService: NSObject, ObservableObject, CBPeripheralDelegate {
+    private var centralManager: CBCentralManager?
+    private var peripherals: [CBPeripheral] = [CBPeripheral]()
+    private var btQueue = DispatchQueue(label: "BT Queue")
     
-    private var stateSubject: PassthroughSubject<CBManagerState, Never> = .init()
-    private var peripheralSubject: PassthroughSubject<CBPeripheral, Never> = .init()
-    private var serviceUUID: String = ""
+    @Published public var peripheralNames: [String] = []
     
-    public var service: String {
-        get {
-            return self.serviceUUID
-        }
-        
-        set(value) {
-            self.serviceUUID = value
-        }
+    public override init() {
+        super.init()
+        self.centralManager = CBCentralManager(delegate: self, queue: self.btQueue, options: nil)
     }
-    
+   
     public func start() throws -> Void {
-        var uuid = self.serviceUUID == "" ? nil : CBUUID(string: self.serviceUUID)
-        
-        self.centralManager = .init(delegate: self, queue: nil)
-        self.centralManager.scanForPeripherals(withServices: [uuid!])
+        self.centralManager?.scanForPeripherals(withServices: nil)
     }
     
     public func connect(peripheral: CBPeripheral) throws -> Void {
-        self.centralManager.stopScan()
         
-        peripheral.delegate = self
-        
-        self.centralManager.connect(peripheral)
     }
     
     public func stop() throws -> Void {
-        self.centralManager.stopScan()
+        self.centralManager!.stopScan()
     }
     
 }
 
-extension BluetoothService {
+extension BluetoothService: CBCentralManagerDelegate {
     public func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        stateSubject.send(central.state)
-        
         switch central.state {
         case .poweredOff:
-            NSLog("Power OFf")
+            NSLog("《蓝牙电源关闭》")
         case .poweredOn:
             NSLog("Powered On.")
-            central.scanForPeripherals(withServices: nil)
+            self.centralManager?.scanForPeripherals(withServices: nil)
         case .unsupported:
             NSLog("Unsupported.")
         case .unauthorized:
@@ -87,6 +71,9 @@ extension BluetoothService {
         advertisementData: [String : Any],
         rssi RSSI: NSNumber
     ) {
-        peripheralSubject.send(peripheral)
+        if !self.peripherals.contains(peripheral) {
+            self.peripherals.append(peripheral)
+            self.peripheralNames.append(peripheral.name ?? "《未命名的设备》")
+        }
     }
 }
