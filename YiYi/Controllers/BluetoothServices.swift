@@ -23,7 +23,7 @@ public class BluetoothService: NSObject, ObservableObject, CBPeripheralDelegate 
     private var peripherals: [CBPeripheral] = [CBPeripheral]()
     private var btQueue = DispatchQueue(label: "BT Queue")
     
-    @Published public var peripheralNames: [String] = []
+    @Published public var peripheralNames: [[String]] = []
     
     public override init() {
         super.init()
@@ -73,7 +73,12 @@ extension BluetoothService: CBCentralManagerDelegate {
     ) {
         if !self.peripherals.contains(peripheral) {
             self.peripherals.append(peripheral)
-            self.peripheralNames.append(peripheral.name ?? "《未命名的设备》")
+            self.peripheralNames.append([
+                peripheral.name ?? "《未命名的设备》",
+                peripheral.debugDescription,
+                String(describing: peripheral.ancsAuthorized),
+                String(describing: peripheral.services)
+            ])
         }
     }
 }

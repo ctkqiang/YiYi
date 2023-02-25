@@ -16,18 +16,34 @@ struct BluetoothView: View {
     
     @ObservedObject private var bluetoothService: BluetoothService = BluetoothService()
     
+    @State private var isPresent: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack {
                 List(self.bluetoothService.peripheralNames, id:\.self) { peripheral in
                     Button {
-                        // Do nothing for now
+                        NSLog(peripheral[0])
                     } label: {
-                        Text(peripheral)
+                        VStack(alignment: .leading) {
+                            Text("命名: \(peripheral[0])").font(
+                                Font.custom("tianzhen", size: 20)
+                            )
+                            Text("调试资讯: \(peripheral[1])").font(
+                                Font.custom("tianzhen", size: 10)
+                            )
+                            Text("ANCS验证: \(peripheral[2])").font(
+                                Font.custom("tianzhen", size: 10)
+                            )
+                            Text("服务: \(peripheral[3] == "nil" ? "《没有任何服务》" : peripheral[3])").font(
+                                Font.custom("tianzhen", size: 10)
+                            )
+                        }
                     }
-                }.refreshable {
-                    // Do nothing for now
                 }
+            }
+            .refreshable {
+                self.isPresent.toggle()
             }
             .navigationTitle(MenuList.mainMenu[1].name).font(Font.custom("tianzhen", size: 20))
         }
