@@ -10,6 +10,9 @@
 import SwiftUI
 #endif
 
+#if canImport(AlertToast)
+import AlertToast
+#endif
 
 struct BluetoothView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -17,6 +20,9 @@ struct BluetoothView: View {
     @ObservedObject private var bluetoothService: BluetoothService = BluetoothService()
     
     @State private var isPresent: Bool = false
+    @State private var isBluetoothOff: Bool = true
+    @State private var isPeripheralsSHow: Bool = false
+    @State private var peripherals: [String] = [String]()
     
     public var body: some View {
         NavigationView {
@@ -34,6 +40,14 @@ struct BluetoothView: View {
                         try! self.bluetoothService.connectToDevice(
                             peripheral: self.bluetoothService.peripherals[0]
                         )
+                        
+                        self.peripherals = [peripheral[1],peripheral[5],peripheral[8]]
+                       
+                        if self.peripherals.count > 0 {
+                            self.isPeripheralsSHow = true
+                        } else {
+                            self.isPeripheralsSHow = false
+                        }
                     } label: {
                         VStack(alignment: .leading) {
                             Text("命名: \(peripheral[0])").font(
@@ -80,12 +94,27 @@ struct BluetoothView: View {
             .refreshable {
                 self.isPresent.toggle()
             }
+            .toast(isPresenting: self.$isBluetoothOff) {
+                AlertToast(
+                    type: .error(.red),
+                    title: "请启用蓝牙功能"
+                )
+            }
+            .toast(isPresenting: self.$isPeripheralsSHow){
+                AlertToast(
+                    type: .complete(.blue),
+                    title: "\(self.peripherals)"
+                )
+            }
             .navigationTitle(MenuList.mainMenu[1].name).font(Font.custom("tianzhen", size: 20))
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(
             leading: try! ActionCustomView.backButton(presentationMode: self.presentationMode)
         )
+        .onAppear {
+            self.isBluetoothOff = self.bluetoothService.bluetoothStatus
+        }
     }
 }
 

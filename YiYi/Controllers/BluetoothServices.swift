@@ -21,7 +21,9 @@ import CoreBluetooth
 public class BluetoothService: NSObject, ObservableObject, CBPeripheralDelegate {
     private var centralManager: CBCentralManager?
     private var btQueue = DispatchQueue(label: "BT Queue")
+    
     public var peripherals: [CBPeripheral] = [CBPeripheral]()
+    public var isBluetoothUnavailable: Bool = true
     
     @Published public var peripheralNames: [[String]] = []
     
@@ -39,9 +41,19 @@ public class BluetoothService: NSObject, ObservableObject, CBPeripheralDelegate 
             if peripheral.name!.isEmpty {
                 NSLog("没有选择蓝牙外围设备。")
                 return
+            } else {
+                self.centralManager?.connect(peripheral)
             }
-            
-            self.centralManager?.connect(peripheral)
+        }
+    }
+    
+    public var bluetoothStatus: Bool {
+        get {
+            return self.isBluetoothUnavailable
+        }
+        
+        set(isBluetoothOff) {
+            self.isBluetoothUnavailable = isBluetoothOff
         }
     }
     
@@ -82,8 +94,10 @@ extension BluetoothService: CBCentralManagerDelegate {
         switch central.state {
         case .poweredOff:
             NSLog("《蓝牙电源关闭》")
+            self.bluetoothStatus = false
         case .poweredOn:
             NSLog("《蓝牙电源已开启》")
+            self.bluetoothStatus = false
             self.centralManager?.scanForPeripherals(withServices: nil)
         case .unsupported:
             NSLog("Unsupported.")
