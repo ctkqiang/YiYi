@@ -28,9 +28,12 @@ struct BluetoothView: View {
                         try! Utilities.copyToClipboard(data: "\(peripheral)") { data in
                             if !data { return }
                             
-                            NSLog("\(peripheral)")
+                            NSLog("详细内容: \(peripheral[0])")
                         }
                         
+                        try! self.bluetoothService.connectToDevice(
+                            peripheral: self.bluetoothService.peripherals[0]
+                        )
                     } label: {
                         VStack(alignment: .leading) {
                             Text("命名: \(peripheral[0])").font(

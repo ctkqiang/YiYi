@@ -20,22 +20,29 @@ import CoreBluetooth
 
 public class BluetoothService: NSObject, ObservableObject, CBPeripheralDelegate {
     private var centralManager: CBCentralManager?
-    private var peripherals: [CBPeripheral] = [CBPeripheral]()
     private var btQueue = DispatchQueue(label: "BT Queue")
+    public var peripherals: [CBPeripheral] = [CBPeripheral]()
     
     @Published public var peripheralNames: [[String]] = []
     
-    public override init() {
+    public required override init() {
         super.init()
-        self.centralManager = CBCentralManager(delegate: self, queue: self.btQueue, options: nil)
+        self.centralManager = CBCentralManager(delegate: self, queue: .main, options: nil)
     }
     
     public func start() throws -> Void {
         self.centralManager?.scanForPeripherals(withServices: nil)
     }
     
-    public func connect(peripheral: CBPeripheral) throws -> Void {
-        
+    public func connectToDevice(peripheral: CBPeripheral) throws -> Void {
+        if self.centralManager?.state != CBManagerState.poweredOn {
+            if peripheral.name!.isEmpty {
+                NSLog("没有选择蓝牙外围设备。")
+                return
+            }
+            
+            self.centralManager?.connect(peripheral)
+        }
     }
     
     public func stop() throws -> Void {
@@ -43,7 +50,7 @@ public class BluetoothService: NSObject, ObservableObject, CBPeripheralDelegate 
     }
     
     public static func signalStrength(rssi: String) throws -> String {
-        var value: Int = Int(rssi)!
+        let value: Int = Int(rssi)!
         
         if value < -55 {
             return "非常强"
