@@ -17,7 +17,11 @@ struct WirelessView: View {
     var body: some View {
         NavigationView {
             VStack {
+                // 1. Wifi Name list and info (connect)
                 
+                // 2. determine what kind of devices
+                // 3. start hotspot (server)
+                // 4. run code in localhost
             }
             .navigationTitle(MenuList.mainMenu[2].name).font(Font.custom("tianzhen", size: 20))
         }

@@ -21,11 +21,13 @@ import CoreBluetooth
 public class BluetoothService: NSObject, ObservableObject, CBPeripheralDelegate {
     private var centralManager: CBCentralManager?
     private var btQueue = DispatchQueue(label: "BT Queue")
+    private var sendCharacteristic:CBCharacteristic?
     
     public var peripherals: [CBPeripheral] = [CBPeripheral]()
     public var isBluetoothUnavailable: Bool = true
     
-    @Published public var peripheralNames: [[String]] = []
+    @Published public var peripheralNames: [[String]] = [[String]]()
+    @Published public var scannedPeripheral: [BluetoothPeripherals] = [BluetoothPeripherals]()
     
     public required override init() {
         super.init()
@@ -87,6 +89,13 @@ public class BluetoothService: NSObject, ObservableObject, CBPeripheralDelegate 
         return "未知"
     }
     
+    public func writeDataToPeripheral(data: Data, peripheral: CBPeripheral, result: @escaping(String) -> ()) throws -> Void {
+        DispatchQueue.main.async {
+            peripheral.writeValue(data, for: self.sendCharacteristic!, type:CBCharacteristicWriteType.withResponse)
+            
+            result("ok")
+        }
+    }
 }
 
 extension BluetoothService: CBCentralManagerDelegate {
@@ -132,6 +141,21 @@ extension BluetoothService: CBCentralManagerDelegate {
                 "\(advertisementData.debugDescription.decomposedStringWithCanonicalMapping)",
                 RSSI.stringValue
             ])
+            
+            let result = BluetoothPeripherals(
+                id: self.scannedPeripheral.count,
+                name: "《\(peripheral.name ?? "未命名的设备")》",
+                debugInfo: String(describing: peripheral.debugDescription.decomposedStringWithCanonicalMapping),
+                ancsAuth: String(describing: peripheral.ancsAuthorized ? "《是》" : "《否》" ),
+                services: String(describing: peripheral.services),
+                stauts: String(describing: peripheral.state.rawValue == 0 ? "《断开连接》" : "《连接》"),
+                uuid: peripheral.identifier.uuidString,
+                isScanning: "\(central.isScanning ? "是" : "否")",
+                data:  "\(advertisementData.debugDescription.decomposedStringWithCanonicalMapping)",
+                rssi: RSSI.stringValue
+            )
+            
+            self.scannedPeripheral.append(result)
         }
     }
 }

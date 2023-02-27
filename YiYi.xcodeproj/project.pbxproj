@@ -24,7 +24,6 @@
 		1AB3A94B29A91E0B0005C6B6 /* BluetoothServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3A94A29A91E0B0005C6B6 /* BluetoothServices.swift */; };
 		1AB3A95229AA524C0005C6B6 /* BluetoothPeripherals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3A95129AA524C0005C6B6 /* BluetoothPeripherals.swift */; };
 		1AB3A95429AA5E9C0005C6B6 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3A95329AA5E9C0005C6B6 /* Utilities.swift */; };
-		1AB3A95729AA6F9F0005C6B6 /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = 1AB3A95629AA6F9F0005C6B6 /* SwiftTerm */; };
 		1AB83EFA29A8B476009C941C /* ActionCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB83EF929A8B476009C941C /* ActionCustomView.swift */; };
 		1AB83EFC29A8B7BA009C941C /* BluetoothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB83EFB29A8B7BA009C941C /* BluetoothView.swift */; };
 		1AB83EFE29A8B7CC009C941C /* WirelessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB83EFD29A8B7CC009C941C /* WirelessView.swift */; };
@@ -83,7 +82,6 @@
 			files = (
 				1AB83F0429A8FDF2009C941C /* SwiftNFC in Frameworks */,
 				1AB83F0129A8BBAB009C941C /* AlertToast in Frameworks */,
-				1AB3A95729AA6F9F0005C6B6 /* SwiftTerm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +247,6 @@
 			packageProductDependencies = (
 				1AB83F0029A8BBAB009C941C /* AlertToast */,
 				1AB83F0329A8FDF2009C941C /* SwiftNFC */,
-				1AB3A95629AA6F9F0005C6B6 /* SwiftTerm */,
 			);
 			productName = YiYi;
 			productReference = 1A0CB22B29A8931A00FB34A7 /* YiYi.app */;
@@ -327,7 +324,6 @@
 			packageReferences = (
 				1AB83EFF29A8BBAB009C941C /* XCRemoteSwiftPackageReference "AlertToast" */,
 				1AB83F0229A8FDF2009C941C /* XCRemoteSwiftPackageReference "SwiftNFC" */,
-				1AB3A95529AA6F9F0005C6B6 /* XCRemoteSwiftPackageReference "SwiftTerm" */,
 			);
 			productRefGroup = 1A0CB22C29A8931A00FB34A7 /* Products */;
 			projectDirPath = "";
@@ -734,14 +730,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1AB3A95529AA6F9F0005C6B6 /* XCRemoteSwiftPackageReference "SwiftTerm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/migueldeicaza/SwiftTerm.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		1AB83EFF29A8BBAB009C941C /* XCRemoteSwiftPackageReference "AlertToast" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/johnmelodyme/AlertToast.git";
@@ -761,11 +749,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1AB3A95629AA6F9F0005C6B6 /* SwiftTerm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1AB3A95529AA6F9F0005C6B6 /* XCRemoteSwiftPackageReference "SwiftTerm" */;
-			productName = SwiftTerm;
-		};
 		1AB83F0029A8BBAB009C941C /* AlertToast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1AB83EFF29A8BBAB009C941C /* XCRemoteSwiftPackageReference "AlertToast" */;
